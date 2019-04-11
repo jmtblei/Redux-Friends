@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
-                loggingIn: !loggingIn
+                loggingIn: true
             }
         case LOGGED_IN:
             return {
@@ -44,7 +44,7 @@ const reducer = (state = initialState, action) => {
         case FETCH_FRIENDS:
             return {
                 ...state,
-                fetchingFriends: !state.fetchingFriends
+                fetchingFriends: true
             };
         case FRIENDS_FETCHED:
             return {
