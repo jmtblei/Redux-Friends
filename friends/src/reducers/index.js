@@ -83,6 +83,16 @@ const reducer = (state = initialState, action) => {
                 error: '',
                 friends: action.payload
             };
+        case ADD_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case DELETE_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
 
     default: return state; 
     }

@@ -75,7 +75,7 @@ export const addFriend = newFriend => dispatch => {
         }
     }
     axios
-        .post('http://localhost:5000/friends', newFriend, headers)
+        .post('http://localhost:5000/api/friends', newFriend, headers)
         .then(res => {
             console.log(res);
             dispatch({
@@ -84,6 +84,7 @@ export const addFriend = newFriend => dispatch => {
             });
         })
         .catch(err => {
+            console.log(err)
             dispatch({ 
                 type: ADD_FAIL,
                 payload: err.response })
@@ -101,7 +102,7 @@ export const deleteFriend = id => dispatch => {
         }
     }
     axios
-        .delete(`http://localhost:5000/friends/${id}`, headers)
+        .delete(`http://localhost:5000/api/friends/${id}`, headers)
         .then(res => {
             console.log(res);
             dispatch({
