@@ -9,6 +9,8 @@ import {
     FRIEND_ADDED,
     DELETE_FRIEND,
     FRIEND_DELETED,
+    ADD_FAIL,
+    DELETE_FAIL
 } from '../actions';
 
 const initialState = {
@@ -35,11 +37,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
+                loggingIn: false
             }
         case LOGIN_FAIL:
             return {
                 ...state,
                 error: action.payload,
+                loggingIn: false
             }
         case FETCH_FRIENDS:
             return {
@@ -76,6 +80,7 @@ const reducer = (state = initialState, action) => {
         case FRIEND_DELETED:
             return {
                 ...state,
+                error: '',
                 friends: action.payload
             };
 

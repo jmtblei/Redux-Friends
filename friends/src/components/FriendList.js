@@ -69,6 +69,7 @@ class FriendList extends React.Component {
                     <Friend 
                         key={friend.id}
                         friend={friend}
+                        handleDelete={this.handleDelete}
                     />
                 ))} 
                 </div>

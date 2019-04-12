@@ -15,12 +15,12 @@ class App extends Component {
               <Link to="/login">Login</Link>
             </li>
             <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected">FriendList</Link>
           </li>
           </ul>
           <h2>Welcome to your Friend List!</h2>
           <Route path="/login" component={LoginPage} />
-          <PrivateRoute path="/protected" component={FriendList}/>
+          <PrivateRoute exact path="/protected" component={FriendList}/>
         </div>
       </Router>
     );

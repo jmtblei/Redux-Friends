@@ -10,13 +10,15 @@ export const FRIEND_ADDED = 'FRIEND_ADDED';
 export const DELETE_FRIEND = 'DELETE_FRIEND';
 export const FRIEND_DELETED = 'FRIEND_DELETED';
 export const FETCH_FAIL = 'FETCH_FAIL';
+export const ADD_FAIL = 'ADD_FAIL';
+export const DELETE_FAIL = 'DELETE_FAIL';
 
 export const login = credentials => dispatch => {
     dispatch({
         type: LOGGING_IN
     })
-    axios
-        .post('http://localhost:5000/api/login', credentials, { username: 'Lambda School', password: 'i<3Lambd4' })
+    return axios
+        .post('http://localhost:5000/api/login', credentials)
         .then(res => {
             console.log(res);
            localStorage.setItem('token', res.data.payload);
@@ -82,7 +84,9 @@ export const addFriend = newFriend => dispatch => {
             });
         })
         .catch(err => {
-            dispatch({ err })
+            dispatch({ 
+                type: ADD_FAIL,
+                payload: err.response })
         })
 }
 
@@ -106,6 +110,8 @@ export const deleteFriend = id => dispatch => {
             });
         })
         .catch(err => {
-            dispatch({ err })
+            dispatch({ 
+                type: DELETE_FAIL,
+                payload: err.response })
         })
 }

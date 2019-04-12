@@ -21,6 +21,7 @@ class LoginPage extends React.Component {
 
     handleLogin = event => {
         event.preventDefault();
+        console.log(this.state.credentials)
         this.props.login(this.state.credentials)
             .then(() => {
                 this.props.history.push('/FriendList');
@@ -31,9 +32,10 @@ class LoginPage extends React.Component {
     }
 
     render() {
+        console.log('hello')
         return (
             <div>
-                <form onSubmit={this.login}>
+                <form onSubmit={this.handleLogin}>
                     <input
                         type="text"
                         name="username"
@@ -42,7 +44,7 @@ class LoginPage extends React.Component {
                         onChange={this.handleChange}
                     />
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         placeholder="Password"
                         value={this.state.credentials.password}
